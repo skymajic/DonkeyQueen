@@ -1,7 +1,134 @@
 @(message: String)
 
-@main("Welcome to Play") {
 
-    <h1>Hello World</h1>
 
+@main("Top Page") {
+  
+  <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/index.css")">
+  <script src="@routes.Assets.at("javascripts/script.js")"></script>
+
+
+	
+	<header>
+	 <div id="banner"></div>
+	 <div id="donkeywrapper">
+	 	<div id="logo">DonkeyQueen</div>
+	 	<form action="#" method="GET" id="search">
+	 		<input type="text" placeholder="検索してください">
+	 		<input type="submit" value="検索">
+	 	</form>
+	 </div>
+	 <nav id="navwrapper">
+	 	<ul id="menu">
+			<li><i class="fa fa-futbol-o" aria-hidden="true"></i> スポーツ
+				<ul class="child">
+					<li><a href="#">サッカー</a></li>
+					<li><a href="#">野球</a></li>
+					<li><a href="#">ラグビー</a></li>
+				</ul>
+			</li>	 			
+	 		<li><i class="fa fa-film" aria-hidden="true"></i> 映画
+	 			<ul class="child">
+	 				<li><a href="#">洋画吹き替え</a></li>
+	 				<li><a href="#">洋画字幕</a></li>
+	 				<li><a href="#">邦画</a></li>
+	 			</ul>
+	 		</li>
+	 		<li><a href="#"><i class="fa fa-music" aria-hidden="true"></i> ライブ</a></li>
+	 		<li><a href="#"><i class="fa fa-university" aria-hidden="true"></i> アート</a></li>
+	 		<li><a href="#" id="top"><i class="fa fa-caret-up" aria-hidden="true"></i> Top</a></li>
+	 		<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> 新規登録</a></li>
+	 		<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン</a></li>
+	 	</ul>
+	 </nav>	
+	</header>
+	
+	<div class="container">
+	
+	<article>
+	
+		<div class="contentsRow">
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+		</div>
+		
+		<div class="contentsRow">
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+		</div>
+		
+		<div class="contentsRow">
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+			<span class="content">チケット</span>
+		</div>
+		
+		<nav id="pagination" aria-label="Page navigation">
+  			<ul class="pagination">
+    			<li>
+      				<a href="#" aria-label="Previous">
+        				<span aria-hidden="true">&laquo;</span>
+      				</a>
+    			</li>
+    			<li><a href="#">1</a></li>
+    			<li><a href="#">2</a></li>
+    			<li><a href="#">3</a></li>
+    			<li>
+      				<a href="#" aria-label="Next">
+        				<span aria-hidden="true">&raquo;</span>
+      				</a>
+    			</li>
+  			</ul>
+		</nav>
+		
+	</article>
+	
+	
+	<aside>
+		<div class="sideMenu">
+		  <h1><i class="fa fa-info-circle" aria-hidden="true"></i>お知らせ</h1>
+		  <ul>
+			<li><a href="#">セキュリティについて</a></li>
+    		<li><a href="#">オススメのチケット</a></li>
+    		<li><a href="#">払い戻しによるご案内</a></li>
+    		<li><a href="#">サーバメンテナンスにより発生する影響のご案内</a></li>
+    		<li><a href="#">お詫びのご連絡</a></li>
+    		<li><a href="#">最新公演情報ご案内</a></li>
+    		<li><a href="#">クーポン情報</a></li>
+    		<li><a href="#">年末年始の休業のご案内</a></li>
+    		<li><a href="#">停電に関するお知らせ</a></li>
+  		  </ul>
+		</div>
+		<div id="snsLink">
+			<a href="#" id="facebook"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+			<a href="#" id="twitter"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+		</div>
+	</aside>
+	
+	
+	</div>
+	
+	
+	<footer>
+		<div id="toTop" style="position:fixed;right:10px;bottom:10px;">
+      	 <i class="fa fa-angle-up fa-4x" aria-hidden="true"></i>
+        </div>
+        
+        <div class="footerMenu">
+          <ul>
+            <li><a href="/rarara">会社情報</a></li>
+            <li><a href="#">採用情報</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">プライバシー規約</a></li>
+          </ul>
+        </div>
+        
+        <div class="footerMenuOneLine">
+          Copyright <i class="fa fa-copyright" aria-hidden="true"></i> DonkeyQueen Inc. All Rights Reserved.
+        </div>
+	
+	</footer>
+    
 }
