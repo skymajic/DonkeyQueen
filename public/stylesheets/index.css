@@ -222,6 +222,7 @@ aside > div.sideMenu > h1 {
     height: 40px;
     padding: 5px;
     background: rgb(77,183,208);
+    color: #fff;
     text-align: center;
 }
 
@@ -238,7 +239,7 @@ aside > div.sideMenu > ul > li {
 aside > div.sideMenu > ul > li > a {
   display: block;
   padding: 5px 10px;
-  color: #000;
+  color: gray;
   text-decoration: none;
 }
 

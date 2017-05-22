@@ -1,0 +1,32 @@
+@(message: String)
+
+@main("Register Form") {
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/register.css")">
+	
+	<a href="/">
+	  <header>
+		  <p>@message</p>
+      </header>
+	</a>
+	
+	
+
+	<div class="registerForm">
+		<form action="#" method="POST">
+			
+			<div class="inputWrapper">
+			  <p><label for="userName">*ユーザ名</label></p>
+			  <p><input type="text" id="userName"></p>
+			</div>
+			
+			<div class="inputWrapper">
+			  <p><label for="password">*パスワード</label></p>
+			  <p><input type="password" id="password"></p>
+			</div>
+			
+			<p><input type="submit" value="送信"></p>
+			
+		</form>
+	</div>
+
+}
