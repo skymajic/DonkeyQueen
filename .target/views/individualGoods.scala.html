@@ -1,0 +1,41 @@
+@(message: String)
+
+@main("個別商品画面"){
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/individualGoods.css")">
+	
+	<header>
+	  <a href="/" id="logo">DonkeyQueen</a>
+	</header>
+	
+	<main>
+	
+		<p>@message</p>
+	
+		<table class="table table-striped table-bordered table-hover table-condensed">
+			<tr><td>チケット名</td><td>FIFA一次予選</td></tr>
+			<tr><td>カテゴリー</td><td>サッカー</td></tr>
+			<tr><td>価格</td><td>¥5000</td></tr>
+			<tr><td>販売開始日</td><td>2017-03-14</td></tr>
+			<tr><td>販売終了日</td><td>2017-06-14</td></tr>
+		</table>	
+	
+		<a href="/login" id="button">購入画面へ進む</a>
+	
+	</main>
+	
+	<footer>
+		<div class="footerMenu">
+          <ul>
+            <li><a href="/rarara">会社情報</a></li>
+            <li><a href="#">採用情報</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">プライバシー規約</a></li>
+          </ul>
+        </div>
+        
+        <div class="footerMenuOneLine">
+          Copyright <i class="fa fa-copyright" aria-hidden="true"></i> DonkeyQueen Inc. All Rights Reserved.
+        </div>
+	</footer>
+
+}

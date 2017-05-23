@@ -24,6 +24,18 @@ public class Application extends Controller {
     	return ok(login.render("ログイン情報を入力してください。"));
     }
     
+    public static Result individualGoods() {
+    	return ok(individualGoods.render("チケット情報"));
+    }
+    
+    public static Result buy() {
+    	return ok(buy.render("個別商品購入画面です。"));
+    }
+    
+    public static Result finished() {
+    	return ok(finished.render("個別商品購入完了画面です。"));
+    }
+    
     
 
 }

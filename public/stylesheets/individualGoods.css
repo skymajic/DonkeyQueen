@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+
+/****************
+ *** ヘッダー ***
+ ****************/
+
+header {
+  height: 60px;
+  background: rgb(255,191,0);
+}
+
+header:hover {
+  opacity: 0.5;
+  transition: .7s;
+}
+
+header > a#logo {
+  font-family: 'Alfa Slab One', cursive;
+  display: inline-block;
+  font-size: 23px;
+  color: rgb(51,102,204);
+  width: 1260px;
+  text-align: center;
+  height: 60px;
+  line-height: 35px;
+  padding: 8px 10px;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*******************
+***** コンテンツ ***
+********************/
+
+main {
+  margin: 0 auto;
+  padding: 50px;
+  height: 500px;
+  width: 500px;
+  background: #fff;
+}
+
+/* 立体ボタンにfloatをつけたので、それのカラム落ち解除 */
+main:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+main > p {
+  margin-bottom: 40px;
+  font-size: 32px;
+  border-left: solid 15px #ed1e79;
+  padding-left: 10px;
+}
+
+main > a#button {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  background-color: #FFCC00;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 150px;
+  text-align: center;
+  height: 40px;
+  line-height: 30px;
+  box-shadow: 0 6px 0 #FF9900;
+  float: right;
+}
+
+main > a#button:hover {
+  text-decoration: none;
+  box-shadow: none;
+  top: 6px;
+  cursor: pointer;
+}
+
+/*******************
+****** フッター ****
+********************/
+
+footer {
+  background: rgb(35,47,62);
+  height: 250px;
+  width: 1280px;
+}
+
+
+footer > div.footerMenu {
+  padding: 50px 30px 10px 30px;
+  margin: 0 auto;
+  width: 450px;
+}
+
+footer > div.footerMenu > ul {
+  font-size: 15px;
+  list-style: none;
+}
+
+/** clearfoxでカラム落ち解除 **/
+footer > div.footerMenu > ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+footer > div.footerMenu > ul > li {
+  float: left;
+}
+
+footer > div.footerMenu > ul > li > a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+footer > div.footerMenu > ul > li+li > a {
+  border-left: solid 1px #aaa;
+}
+
+footer > div.footerMenuOneLine {
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 30px 30px 30px;
+  width: 450px;
+  height: 100px;
+  line-height: 60px;
+}
