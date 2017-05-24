@@ -1,6 +1,28 @@
-@(message: String)
+@(elements_01: String, elements_02: String, elements_03: String, elements_04: String, elements_05: String)
 
 @main("個別商品購入画面"){
-	<p>@message</p>
-	<a href="/finished">個別商品購入完了画面</a>
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/buy.css")">
+	
+	<header>
+	  <a href="/" id="logo">DonkeyQueen</a>
+	</header>
+	
+	<div class="container">	
+		<ul class="breadcrumb">
+  			<li><a href="/">@elements_01</a></li>
+  			<li><a href="/individualGoods">@elements_02</a></li>
+  			<li>@elements_03</li>
+  			<li class="active">@elements_04</li>
+  			<li>@elements_05</li>
+		</ul>
+		
+		<table class="table table-striped table-bordered table-hover table-condensed"> 
+			<tr><td>チケット名</td><td>FIFA一次予選</td></tr>
+			<tr><td>価格</td><td>¥5000</td></tr>
+		</table>
+		
+		<a href="/finished" id="button">購入する</a>
+	</div>
+	
+	
 }

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+  background: #e0e0e0;
+}
+
+header {
+  height: 60px;
+  background: rgb(255,191,0);
+}
+
+header:hover {
+  opacity: 0.5;
+  transition: .7s;
+}
+
+header > a#logo {
+  font-family: 'Alfa Slab One', cursive;
+  display: inline-block;
+  font-size: 23px;
+  color: rgb(51,102,204);
+  width: 1260px;
+  text-align: center;
+  height: 60px;
+  line-height: 35px;
+  padding: 8px 10px;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div.container {
+  background: #fff;
+  margin: 70px auto 0;
+  padding: 50px;
+  width: 650px;
+  height: 330px;
+  border-radius: 5px;
+}
+
+/* 立体ボタンをフロートしたので、親要素であるdiv.containerにclearfixをつけて、カラム落ちを解除する */
+div.container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.container > ul.breadcrumb {
+  width: 415px;
+}
+
+div.container > ul.breadcrumb > li {
+  color: gray;
+}
+
+div.container > ul.breadcrumb > li.active {
+  color: #D2B48C;
+}
+
+div.container > ul.breadcrumb > li > a {
+  color: gray;
+  text-decoration: none;
+}
+
+div.container > ul.breadcrumb > li > a:hover {
+  opacity: 0.5;
+}
+
+div.container > table.table {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+div.container > a#button {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  background-color: #FFCC00;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 150px;
+  text-align: center;
+  height: 40px;
+  line-height: 30px;
+  box-shadow: 0 6px 0 #FF9900;
+  float: right;
+}
+
+div.container > a#button:hover {
+  text-decoration: none;
+  box-shadow: none;
+  top: 6px;
+  cursor: pointer;
+}

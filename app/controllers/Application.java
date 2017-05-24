@@ -29,11 +29,11 @@ public class Application extends Controller {
     }
     
     public static Result buy() {
-    	return ok(buy.render("個別商品購入画面です。"));
+    	return ok(buy.render("商品検索","個別商品","ログイン","購入","購入完了"));
     }
     
     public static Result finished() {
-    	return ok(finished.render("個別商品購入完了画面です。"));
+    	return ok(finished.render("商品検索","個別商品","ログイン","購入","購入完了","購入を完了しました。"));
     }
     
     

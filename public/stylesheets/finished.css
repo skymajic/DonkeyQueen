@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+body {
+  background: #e0e0e0;
+}
+
+/***************
+*** ヘッダー ***
+****************/
+
+header {
+  height: 60px;
+  background: rgb(255,191,0);
+}
+
+header:hover {
+  opacity: 0.5;
+  transition: .7s;
+}
+
+header > a#logo {
+  font-family: 'Alfa Slab One', cursive;
+  display: inline-block;
+  font-size: 23px;
+  color: rgb(51,102,204);
+  width: 1260px;
+  text-align: center;
+  height: 60px;
+  line-height: 35px;
+  padding: 8px 10px;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/***************
+***コンテンツ***
+***************/
+
+div.container {
+  background: #fff;
+  margin: 70px auto 0;
+  padding: 50px;
+  width: 650px;
+  height: 330px;
+  border-radius: 5px;
+}
+
+/*** パンくずリスト ***/
+
+div.container > ul.breadcrumb {
+  width: 415px;
+  margin-left: 67px;
+}
+
+div.container > ul.breadcrumb > li {
+  color: gray;
+}
+
+div.container > ul.breadcrumb > li.active {
+  color: #D2B48C;
+}
+
+div.container > ul.breadcrumb > li > a {
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+div.container > ul.breadcrumb > li > a:hover {
+  opacity: 0.5;
+}
+
+/*** 文言 ***/
+div.container > p {
+  display: inline-block;
+  margin-left: 45px;
+  padding: 10px 50px;
+  width: 500px;
+  text-align: center;
+  height: 150px;
+  line-height: 130px;
+  font-size: 40px;
+  color: #e0e0e0;
+}
+
+div.container > a[href="/"] {
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 125px;
+  padding: 10px 30px;
+  background: rgb(255,191,0);
+  color: #fff;
+  border-radius: 5px;
+  width: 300px;
+  height: 50px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+div.container > a[href="/"]:hover {
+  opacity: 0.5;
+  transition: 0.7;
+}

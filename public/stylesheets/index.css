@@ -176,17 +176,17 @@ div.container:after {
   clear: both;
 }
 
-article {
+div.container > article {
 width: 870px;
 float: left;
 }
 
-div.contentsRow {
+div.container > article > div.contentsRow {
   padding: 30px;
   width: 850px;
 }
 
-span.content {
+div.container > article > div.contentsRow > span.content {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -196,12 +196,23 @@ span.content {
   background: #e0e0e0;
 }
 
-span.content:hover {
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"]:hover {
+  text-decoration: none;
+}
+
+div.container > article > div.contentsRow > span.content:hover {
   opacity: 0.5;
   cursor: pointer;
 }
 
-nav#pagination {
+div.container > article > nav#pagination {
   text-align: center;
 }
 
