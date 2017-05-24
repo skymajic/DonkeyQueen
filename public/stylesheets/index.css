@@ -47,7 +47,7 @@ form#search {
   float: right;
 }
 
-form#search input[type="text"] {
+form#search > input[type="text"] {
   display: inline-block;
   padding: 2px 7px;
   width: 250px;
@@ -57,7 +57,7 @@ form#search input[type="text"] {
   cursor: pointer;
 }
 
-form#search input[type="submit"] {
+form#search > input[type="submit"] {
   display: inline-block;
   color: #a0a0a0;
   margin-left: -5px;
@@ -68,11 +68,11 @@ form#search input[type="submit"] {
   border-radius: 0 3px 3px 0;
 }
 
-form#search input[type="submit"]:hover {
+form#search > input[type="submit"]:hover {
   opacity: 0.7;
 }
 
-form#search input[type="text"],form#search input[type="submit"] {
+form#search > input[type="text"],form#search > input[type="submit"] {
   outline: none;
 }
 
@@ -138,6 +138,7 @@ nav#navwrapper > ul#menu > li > ul.child {
   display: none;
   position: absolute;
   padding: 0;
+  z-index: 1;
 }
 
 nav#navwrapper > ul#menu > li > ul.child > li {
@@ -182,29 +183,19 @@ float: left;
 }
 
 div.container > article > div.contentsRow {
+  margin: 0 auto;
   padding: 30px;
   width: 850px;
+  height: 280px;
 }
 
 div.container > article > div.contentsRow > span.content {
   display: inline-block;
   width: 200px;
   height: 200px;
-  padding: 20px;
   margin: 10px 30px;
   border-radius: 5px;
   background: #e0e0e0;
-}
-
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-}
-
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"]:hover {
-  text-decoration: none;
 }
 
 div.container > article > div.contentsRow > span.content:hover {
@@ -212,6 +203,44 @@ div.container > article > div.contentsRow > span.content:hover {
   cursor: pointer;
 }
 
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"]:hover {
+  text-decoration: none;
+}
+
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > img#sampleImg {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > p.child {
+  color: #fff;
+  background: orange;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 10px 0 0 0;
+}
+
+div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > p.child:hover {
+  opacity: 0.3;
+}
+
+
+/*** ページング ***/
 div.container > article > nav#pagination {
   text-align: center;
 }
