@@ -89,7 +89,7 @@ nav#navwrapper {
 
 nav#navwrapper > ul#menu {
   list-style: none;
-  width: 1050px;
+  width: 1200px;
 }
 
 /* floatを解除し、カラム落ちを回避する */
