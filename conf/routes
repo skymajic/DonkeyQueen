@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+
+
 GET		/register					controllers.Application.register()
 GET		/login						controllers.Application.login()
 GET		/individualGoods			controllers.Application.individualGoods()

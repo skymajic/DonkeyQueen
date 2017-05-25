@@ -1,15 +1,24 @@
 package controllers;
 
+import models.*;
 import play.*;
 import play.mvc.*;
 
 import views.html.*;
 
 public class Application extends Controller {
-
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
-    }
+        
+//    public static Result index(int page, String sortBy, String order, String filter) {
+//    	return ok(
+//    		index.render(Ticket.page(page, 9, sortBy, order, filter),sortBy, order, filter)	
+//    	);
+//    }
+	
+	public static Result index() {
+		return ok(index.render("hello world"));
+	}
+    
+    
     
     // ページ遷移サンプル
     public static Result rarara() {
@@ -34,8 +43,6 @@ public class Application extends Controller {
     
     public static Result finished() {
     	return ok(finished.render("商品検索","個別商品","ログイン","購入","購入完了","購入を完了しました。"));
-    }
-    
-    
+    } 
 
 }
