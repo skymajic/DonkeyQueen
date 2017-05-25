@@ -1,5 +1,18 @@
-@(message: String)
+@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String, currentFilter: String)
 
+@link(newPage:Int, newSortBy:String) = @{
+    
+    var sortBy = currentSortBy
+    var order = currentOrder
+    
+    if(newSortBy != null) {
+        sortBy = newSortBy
+    }
+    
+    // Generate the link
+    routes.Application.index(newPage, sortBy, order, currentFilter)
+    
+}
 
 
 @main("Top Page") {
@@ -13,8 +26,8 @@
 	 <div id="banner"></div>
 	 <div id="donkeywrapper">
 	 	<div id="logo">DonkeyQueen</div>
-	 	<form action="#" method="GET" id="search">
-	 		<input type="text" placeholder="検索してください">
+	 	<form action="@link(0, "name")" method="GET" id="search">
+	 		<input type="text" name="f" value="@currentFilter" placeholder="検索してください">
 	 		<input type="submit" value="検索">
 	 	</form>
 	 </div>
@@ -48,86 +61,42 @@
 	
 	<article>
 	
-		<div class="contentsRow">
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-		</div>
-		
-		<div class="contentsRow">
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-		</div>
-		
-		<div class="contentsRow">
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
-			<span class="content">
-			  <a href="/individualGoods">
-			    <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-			    <p class="child">soccor01</p>
-			  </a>
-			</span>
+		<div class="ticketContainer">
+	 		@for(ticket <- currentPage.getList){
+	     		<div id="rowElement">
+	     			<a href="/individualGoods">
+	     			  <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
+	     			  <p class="child">@ticket.name</p>
+	     			</a>
+	     		</div>  	
+			}
 		</div>
 		
 		<nav id="pagination" aria-label="Page navigation">
   			<ul class="pagination">
-    			<li>
-      				<a href="#" aria-label="Previous">
-        				<span aria-hidden="true">&laquo;</span>
-      				</a>
-    			</li>
+    			@if(currentPage.hasPrev) {
+                    <li class="previous">
+                        <a href="@link(currentPage.getPageIndex - 1, null)">&laquo;</a>
+                    </li>
+                } else {
+                    <li class="previous disabled">
+                        <a>&laquo;</a>
+                    </li>
+                }
     			<li><a href="#">1</a></li>
     			<li><a href="#">2</a></li>
     			<li><a href="#">3</a></li>
     			<li><a href="#">4</a></li>
     			<li><a href="#">5</a></li>
-    			<li>
-      				<a href="#" aria-label="Next">
-        				<span aria-hidden="true">&raquo;</span>
-      				</a>
-    			</li>
+    			@if(currentPage.hasNext) {
+                    <li class="next">
+                        <a href="@link(currentPage.getPageIndex + 1, null)">&raquo;</a>
+                    </li>
+                } else {
+                    <li class="next disabled">
+                        <a>&raquo;</a>
+                    </li>
+                }
   			</ul>
 		</nav>
 		

@@ -2,8 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index()
+# Home page.  Property are page, sortBy, order, filter.
+GET     /                           controllers.Application.index(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 
 
 GET		/register					controllers.Application.register()

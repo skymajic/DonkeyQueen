@@ -8,19 +8,13 @@ import views.html.*;
 
 public class Application extends Controller {
         
-//    public static Result index(int page, String sortBy, String order, String filter) {
-//    	return ok(
-//    		index.render(Ticket.page(page, 9, sortBy, order, filter),sortBy, order, filter)	
-//    	);
-//    }
-	
-	public static Result index() {
-		return ok(index.render("hello world"));
-	}
+    public static Result index(int page, String sortBy, String order, String filter) {
+    	return ok(
+    		index.render(Ticket.page(page, 9, sortBy, order, filter),sortBy, order, filter)	
+    	);
+    }
     
-    
-    
-    // ページ遷移サンプル
+    // サンプルページ
     public static Result rarara() {
     	return ok(rarara.render("This is a rarara."));
     }

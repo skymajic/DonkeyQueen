@@ -182,46 +182,42 @@ width: 870px;
 float: left;
 }
 
-div.container > article > div.contentsRow {
+div.container > article > div.ticketContainer {
   margin: 0 auto;
-  padding: 30px;
-  width: 850px;
-  height: 280px;
+  width: 800px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-div.container > article > div.contentsRow > span.content {
+
+div.container > article > div.ticketContainer > div#rowElement {
   display: inline-block;
-  width: 200px;
-  height: 200px;
-  margin: 10px 30px;
-  border-radius: 5px;
+  width: 217px;
+  height: 217px;
   background: #e0e0e0;
+  margin: 20px;
 }
 
-div.container > article > div.contentsRow > span.content:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] {
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] {
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 217px;
+  height: 217px;
   z-index: 0;
 }
 
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"]:hover {
-  text-decoration: none;
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"]:hover {
+  opacity: 0.5;
 }
 
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > img#sampleImg {
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > img#sampleImg {
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 217px;
+  height: 217px;
 }
 
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > p.child {
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child {
   color: #fff;
   background: orange;
   opacity: 0.7;
@@ -235,7 +231,7 @@ div.container > article > div.contentsRow > span.content > a[href="/individualGo
   border-radius: 10px 0 0 0;
 }
 
-div.container > article > div.contentsRow > span.content > a[href="/individualGoods"] > p.child:hover {
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child:hover {
   opacity: 0.3;
 }
 
