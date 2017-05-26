@@ -26,7 +26,6 @@ public class Ticket extends Model {
 	
 	public String category;
 	
-	@Required
 	public Integer price;
 	
 	@Formats.DateTime(pattern="yyyy-MM-dd")
@@ -47,6 +46,7 @@ public class Ticket extends Model {
 	 * @param pageSize 1ページあたりの表示件数
 	 * @param sortBy ソートに使用されるプロパティ名
 	 * @param order 昇順asc か 降順desc か
+	 * @param category どのカテゴリーか
 	 * @param filter 検索文字列
 	 * @return
 	 */
@@ -59,6 +59,32 @@ public class Ticket extends Model {
 				.findPagingList(pageSize)
 				.getPage(page);
 	}
+	
+	/**
+	 * Return a category page of ticket
+	 * 
+	 * @param page 表示するページ
+	 * @param pageSize 1ページあたりの表示件数
+	 * @param sortBy ソートに使用されるプロパティ名
+	 * @param order 昇順asc か 降順desc か
+	 * @param category どのカテゴリーか
+	 * @return
+	 */
+	public static Page<Ticket> categoryPage(int page, int pageSize, String sortBy, String order, String category) {
+		return 
+			find.where()
+				.ilike("category", category)
+				.orderBy(sortBy + " " + order)
+				.fetch("company")
+				.findPagingList(pageSize)
+				.getPage(page);
+	}
+	
+	
+	// idの最大値を取得するメソッド
+	public static int getMaxId() {
+    	return find.findRowCount();
+    }
 	
 }
 

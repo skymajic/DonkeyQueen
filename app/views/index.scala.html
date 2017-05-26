@@ -1,4 +1,4 @@
-@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String, currentFilter: String)
+@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String,currentFilter: String)
 
 @link(newPage:Int, newSortBy:String) = @{
     
@@ -15,7 +15,7 @@
 }
 
 
-@main("Top Page") {
+@main("Home Page") {
   
   <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/index.css")">
   <script src="@routes.Assets.at("javascripts/index.js")"></script>
@@ -35,20 +35,20 @@
 	 	<ul id="menu">
 			<li><i class="fa fa-futbol-o" aria-hidden="true"></i> スポーツ
 				<ul class="child">
-					<li><a href="#">サッカー</a></li>
-					<li><a href="#">野球</a></li>
-					<li><a href="#">ラグビー</a></li>
+					<li><a href="/soccor">サッカー</a></li>
+					<li><a href="/baseball">野球</a></li>
+					<li><a href="/rugby">ラグビー</a></li>
 				</ul>
 			</li>	 			
 	 		<li><i class="fa fa-film" aria-hidden="true"></i> 映画
 	 			<ul class="child">
-	 				<li><a href="#">洋画吹き替え</a></li>
-	 				<li><a href="#">洋画字幕</a></li>
-	 				<li><a href="#">邦画</a></li>
+	 				<li><a href="/dubbedFilm">洋画吹き替え</a></li>
+	 				<li><a href="/subtitledMovie">洋画字幕</a></li>
+	 				<li><a href="/japaneseMovie">邦画</a></li>
 	 			</ul>
 	 		</li>
-	 		<li><a href="#"><i class="fa fa-music" aria-hidden="true"></i> ライブ</a></li>
-	 		<li><a href="#"><i class="fa fa-university" aria-hidden="true"></i> アート</a></li>
+	 		<li><a href="/live"><i class="fa fa-music" aria-hidden="true"></i> ライブ</a></li>
+	 		<li><a href="/art"><i class="fa fa-university" aria-hidden="true"></i> アート</a></li>
 	 		<li><a href="/" id="top"><i class="fa fa-caret-up" aria-hidden="true"></i> Top</a></li>
 	 		<li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> 新規登録</a></li>
 	 		<li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン</a></li>
@@ -83,11 +83,17 @@
                         <a>&laquo;</a>
                     </li>
                 }
-    			<li><a href="#">1</a></li>
-    			<li><a href="#">2</a></li>
-    			<li><a href="#">3</a></li>
-    			<li><a href="#">4</a></li>
-    			<li><a href="#">5</a></li>
+                
+                @*** アラビア数字でページング ***@
+                @for(i <- 0 to currentPage.getTotalPageCount()) {
+                	@if(i == currentPage.getTotalPageCount()) {
+                	  @* nothing to output *@
+                	} else {
+                	  <li><a href="@link(i,"name")">@(i+1)</a></li>
+                	}
+                
+                }
+    			
     			@if(currentPage.hasNext) {
                     <li class="next">
                         <a href="@link(currentPage.getPageIndex + 1, null)">&raquo;</a>

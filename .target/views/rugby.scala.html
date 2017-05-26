@@ -1,4 +1,4 @@
-@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String,currentFilter: String)
+@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String,currentCategory: String)
 
 @link(newPage:Int, newSortBy:String) = @{
     
@@ -10,15 +10,15 @@
     }
     
     // Generate the link
-    routes.Application.index(newPage, sortBy, order, currentFilter)
+    routes.Application.rugby(newPage, sortBy, order, currentCategory)
     
 }
 
 
-@main("Home Page") {
+@main("rugby Page") {
   
-  <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/index.css")">
-  <script src="@routes.Assets.at("javascripts/index.js")"></script>
+  <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/category.css")">
+  <script src="@routes.Assets.at("javascripts/category.js")"></script>
 
 
 	
@@ -27,17 +27,17 @@
 	 <div id="donkeywrapper">
 	 	<div id="logo">DonkeyQueen</div>
 	 	<form action="@link(0, "name")" method="GET" id="search">
-	 		<input type="text" name="f" value="@currentFilter" placeholder="検索してください">
+	 		<input type="text" name="f" value="" placeholder="検索してください">
 	 		<input type="submit" value="検索">
 	 	</form>
 	 </div>
 	 <nav id="navwrapper">
 	 	<ul id="menu">
-			<li><i class="fa fa-futbol-o" aria-hidden="true"></i> スポーツ
+			<li id="nowCategory"><i class="fa fa-futbol-o" aria-hidden="true"></i> スポーツ
 				<ul class="child">
 					<li><a href="/soccor">サッカー</a></li>
 					<li><a href="/baseball">野球</a></li>
-					<li><a href="/rugby">ラグビー</a></li>
+					<li id="nowCategory"><a href="/rugby">ラグビー</a></li>
 				</ul>
 			</li>	 			
 	 		<li><i class="fa fa-film" aria-hidden="true"></i> 映画
@@ -83,9 +83,9 @@
                         <a>&laquo;</a>
                     </li>
                 }
-                
-                @*** アラビア数字でページング ***@
-                @for(i <- 0 to currentPage.getTotalPageCount()) {
+    			
+    			@*** アラビア数字でページング ***@
+    			@for(i <- 0 to currentPage.getTotalPageCount()) {
                 	@if(i == currentPage.getTotalPageCount()) {
                 	  @* nothing to output *@
                 	} else {

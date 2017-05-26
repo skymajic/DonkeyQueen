@@ -5,13 +5,39 @@
 # Home page.  Property are page, sortBy, order, filter.
 GET     /                           controllers.Application.index(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 
+# 管理画面
+GET     /manageIndex                controllers.Admin.manageIndex()
+GET		/tickets					controllers.Admin.manage(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 
+GET		/tickets/new				controllers.Admin.create()
+POST	/tickets					controllers.Admin.save()
+
+GET		/tickets/:id				controllers.Admin.edit(id:Long)
+POST	/tickets/:id				controllers.Admin.update(id:Long)
+
+POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
+
+
+
+# Auth page
 GET		/register					controllers.Application.register()
 GET		/login						controllers.Application.login()
+
+# Buy process page
 GET		/individualGoods			controllers.Application.individualGoods()
 GET		/buy						controllers.Application.buy()
 GET		/finished					controllers.Application.finished()
 
+
+# Category page
+GET     /art						controllers.Application.art(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "art")
+GET		/baseball					controllers.Application.baseball(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "baseball")
+GET		/dubbedFilm					controllers.Application.dubbedFilm(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "dubbedFilm")
+GET		/japaneseMovie			    controllers.Application.japaneseMovie(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "japaneseMovie")
+GET     /live						controllers.Application.live(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "live")
+GET     /rugby						controllers.Application.rugby(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "rugby")					
+GET     /soccor						controllers.Application.soccor(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "soccor")
+GET     /subtitledMovie				controllers.Application.subtitledMovie(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "subtitledMovie")
 
 # ページ遷移 サンプル
 GET     /rarara						controllers.Application.rarara()	

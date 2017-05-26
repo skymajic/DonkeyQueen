@@ -1,0 +1,133 @@
+@(currentPage: com.avaje.ebean.Page[Ticket], currentSortBy: String, currentOrder: String, currentFilter: String)
+
+
+@link(newPage:Int, newSortBy:String) = @{
+    
+    var sortBy = currentSortBy
+    var order = currentOrder
+    
+    if(newSortBy != null) {
+        sortBy = newSortBy
+        if(currentSortBy == newSortBy) {
+            if(currentOrder == "asc") {
+                order = "desc"
+            } else {
+                order = "asc"
+            }
+        } else {
+            order = "asc"
+        }
+    }
+    
+    // Generate the link
+    routes.Admin.manage(newPage, sortBy, order, currentFilter)
+    
+}
+
+@header(key:String, title:String) = {
+    <th class="@key.replace(".","_") ">
+        <a href="@link(0, key)">@title</a>
+    </th>
+}
+
+@main("管理画面") {
+    
+    <h1>@Messages("tickets.manage.title", currentPage.getTotalRowCount)</h1>
+
+    @if(flash.containsKey("success")) {
+        <div class="alert alert-warning" role="alert">
+            <strong>Done!</strong> @flash.get("success")
+        </div>
+    } 
+
+    <div>
+        
+        <form action="@link(0, "name")" method="GET">
+            <input type="search"  name="f" value="@currentFilter" placeholder="チケット名で検索してください">
+            <input type="submit"  value="SEARCH" class="btn btn-primary">
+        </form>
+        
+        <a class="btn btn-success" href="@routes.Admin.create()">Add a new ticket</a>
+        
+    </div>
+    
+    @if(currentPage.getTotalRowCount == 0) {
+        
+        <div class="well">
+            <em>Nothing to display</em>
+        </div>
+        
+    } else {
+        
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    @header("name", "Ticket name")
+                    @header("introduced", "Introduced")
+                    @header("discontinued", "Discontinued")
+                    @header("company.name", "Company")
+                </tr>
+            </thead>
+            <tbody>
+
+                @for(ticket <- currentPage.getList) {
+                    <tr>
+                        <td><a href="@routes.Admin.edit(ticket.id)">@ticket.name</a></td>
+                        <td>
+                            @if(ticket.introduced == null) {
+                                <em>-</em>
+                            } else {
+                                @ticket.introduced.format("dd MMM yyyy")
+                            }
+                        </td>
+                        <td>
+                            @if(ticket.discontinued == null) {
+                                <em>-</em>
+                            } else {
+                                @ticket.discontinued.format("dd MMM yyyy")
+                            }
+                        </td>
+                        <td>
+                            @if(ticket.company == null) {
+                                <em>-</em>
+                            } else {
+                                @ticket.company.name
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <div>
+            <ul class="pagination">
+                @if(currentPage.hasPrev) {
+                    <li class="previous">
+                        <a href="@link(currentPage.getPageIndex - 1, null)">&laquo;</a>
+                    </li>
+                } else {
+                    <li class="previous disabled">
+                        <a>&laquo;</a>
+                    </li>
+                }
+                <li class="current">
+                    <a>Displaying @currentPage.getDisplayXtoYofZ(" to "," of ")</a>
+                </li>
+                @if(currentPage.hasNext) {
+                    <li class="next">
+                        <a href="@link(currentPage.getPageIndex + 1, null)">&raquo;</a>
+                    </li>
+                } else {
+                    <li class="next disabled">
+                        <a>&raquo;</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        
+    }
+        
+}
+
+            

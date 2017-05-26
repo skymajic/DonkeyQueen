@@ -1,0 +1,36 @@
+@(ticketForm: Form[Ticket])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(RevisedFormElement.render) } 
+
+@main("チケット追加画面") {
+    
+    <h1>Add a ticket</h1>
+    
+    @form(routes.Admin.save()) {
+        
+        <fieldset>
+        
+            @inputText(ticketForm("name"), '_label -> "Ticket name")
+            @inputText(ticketForm("introduced"), '_label -> "Introduced date")
+            @inputText(ticketForm("discontinued"), '_label -> "Discontinued date")
+
+            @select(           
+                ticketForm("company.id"),
+                options(Company.options), 
+                '_label -> "Company", '_default -> "-- Choose a company --",
+                '_showConstraints -> false
+            )
+            
+
+        </fieldset>
+        
+        <div>
+            <input type="submit" value="Add this ticket" class="btn btn-primary"> or 
+            <a href="@routes.Admin.manage()" class="btn btn-success">Cancel</a> 
+        </div>
+        
+    }
+    
+}

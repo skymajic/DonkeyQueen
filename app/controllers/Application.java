@@ -1,5 +1,7 @@
 package controllers;
 
+import com.avaje.ebean.Page;
+
 import models.*;
 import play.*;
 import play.mvc.*;
@@ -7,13 +9,69 @@ import play.mvc.*;
 import views.html.*;
 
 public class Application extends Controller {
-        
-    public static Result index(int page, String sortBy, String order, String filter) {
+    
+	// Home page
+    public static Result index(int page, String sortBy, String order,String filter) {
     	return ok(
-    		index.render(Ticket.page(page, 9, sortBy, order, filter),sortBy, order, filter)	
+    		index.render(Ticket.page(page, 9, sortBy, order ,filter),sortBy, order,filter)	
     	);
     }
     
+    
+    /**********************
+     *** Category Pages ***
+     *********************/
+    
+    public static Result art(int page, String sortBy, String order, String category) {
+    	return ok(
+    		art.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+
+    public static Result baseball(int page, String sortBy, String order, String category) {
+    	return ok(
+    		baseball.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result dubbedFilm(int page, String sortBy, String order, String category) {
+    	return ok(
+    		dubbedFilm.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result japaneseMovie(int page, String sortBy, String order, String category) {
+    	return ok(
+    		japaneseMovie.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result live(int page, String sortBy, String order, String category) {
+    	return ok(
+    		live.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result rugby(int page, String sortBy, String order, String category) {
+    	return ok(
+    	    rugby.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result soccor(int page, String sortBy, String order, String category) {
+    	return ok(
+    		soccor.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+    public static Result subtitledMovie(int page, String sortBy, String order, String category) {
+    	return ok(
+    	    subtitledMovie.render(Ticket.categoryPage(page, 9, sortBy, order, category),sortBy,order,category)
+    	);
+    }
+    
+   
     // サンプルページ
     public static Result rarara() {
     	return ok(rarara.render("This is a rarara."));

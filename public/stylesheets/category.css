@@ -1,0 +1,420 @@
+@charset "UTF-8";
+
+
+/****************************
+ ***ヘッダー1行目のバナー ***
+ ****************************/
+
+div#banner {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 34px;
+  background: rgb(255,191,0);
+  color: #fff;
+}
+
+/****************************************
+ ***ヘッダー2行目のロゴと検索ボックス ***
+ ****************************************/
+
+div#donkeywrapper {
+  background: #fff;
+  height: 67px;
+  width: 730px;
+  padding: 8px 10px;
+}
+
+div#logo {
+  font-family: 'Alfa Slab One', cursive;
+  display: inline-block;
+  font-size: 23px;
+  color: rgb(51,102,204);
+  width: 200px;
+  text-align: center;
+  height: 51px;
+  line-height: 35px;
+  padding: 8px 10px;
+  float: left;
+  cursor: pointer;
+}
+
+form#search {
+  display: inline-block;
+  width: 500px;
+  height: 51px;
+  padding: 8px 10px;
+  float: right;
+}
+
+form#search > input[type="text"] {
+  display: inline-block;
+  padding: 2px 7px;
+  width: 250px;
+  height: 34px;
+  border: 2px solid #eee;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+}
+
+form#search > input[type="submit"] {
+  display: inline-block;
+  color: #a0a0a0;
+  margin-left: -5px;
+  padding: 0;
+  border: none;
+  width: 45px;
+  height: 34px;
+  border-radius: 0 3px 3px 0;
+}
+
+form#search > input[type="submit"]:hover {
+  opacity: 0.7;
+}
+
+form#search > input[type="text"],form#search > input[type="submit"] {
+  outline: none;
+}
+
+
+/***********************************
+ ***ヘッダー3行目のナビゲーション***
+ ***********************************/
+
+nav#navwrapper {
+  background: rgb(242,241,236);
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav#navwrapper > ul#menu {
+  list-style: none;
+  width: 1200px;
+}
+
+/* floatを解除し、カラム落ちを回避する */
+nav#navwrapper > ul#menu:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav#navwrapper > ul#menu > li {
+  float: left;
+  position: relative;
+  display: inline-block;
+  color: gray;
+  height: 43px;
+  line-height: 43px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+nav#navwrapper > ul#menu > li:hover {
+  background: #F5FFFA;
+}
+
+nav#navwrapper > ul#menu > li#nowCategory {
+  background: yellow;
+}
+
+nav#navwrapper > ul > li > a{
+  display: inline-block;
+  width: 150px;
+  height: 43px;
+  color: gray;
+}
+
+nav#navwrapper > ul > li > a:hover {
+  text-decoration: none;
+}
+
+nav#navwrapper > ul > li > a#top {
+  background: rgb(255,191,0);
+}
+
+nav#navwrapper > ul > li > a#top:hover {
+  opacity: 0.5;
+}
+
+nav#navwrapper > ul#menu > li > ul.child {
+  display: none;
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+}
+
+nav#navwrapper > ul#menu > li > ul.child > li {
+  width: 150px;
+  background: rgb(242,241,236);
+}
+
+nav#navwrapper > ul#menu > li > ul.child > li:hover {
+  background: #F5FFFA;
+}
+
+nav#navwrapper > ul#menu > li > ul.child > li#nowCategory {
+  background: yellow;
+}
+
+nav#navwrapper > ul#menu > li > ul.child > li > a {
+  display: block;
+  color: gray;
+  width: 150px;
+}
+
+nav#navwrapper > ul#menu > li > ul.child > li > a:hover {
+  text-decoration: none;
+}
+
+
+/***********************
+*** メインコンテンツ ***
+************************/
+
+div.container {
+  width: 1280px;
+  margin: 0;
+  padding: 0;
+}
+
+div.container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+div.container > article {
+width: 870px;
+float: left;
+}
+
+div.container > article > div.ticketContainer {
+  margin: 0 auto;
+  width: 800px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+div.container > article > div.ticketContainer > div#rowElement {
+  display: inline-block;
+  width: 217px;
+  height: 217px;
+  background: #e0e0e0;
+  margin: 20px;
+}
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] {
+  position: relative;
+  display: inline-block;
+  width: 217px;
+  height: 217px;
+  z-index: 0;
+}
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"]:hover {
+  opacity: 0.5;
+}
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > img#sampleImg {
+  display: inline-block;
+  width: 217px;
+  height: 217px;
+}
+
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child {
+  color: #fff;
+  background: orange;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 10px 0 0 0;
+}
+
+div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child:hover {
+  opacity: 0.3;
+}
+
+
+/*** ページング ***/
+div.container > article > nav#pagination {
+  text-align: center;
+}
+
+/***************
+***サイドバー***
+****************/
+
+aside {
+  float: right;
+  width: 400px;
+  height: 960px;
+  border-left: 1px solid #e0e0e0;
+}
+
+aside > div.sideMenu > h1 {
+    margin: 0 0 10px 0;
+  	font-size: 25px;
+  	line-height: 30px;
+    height: 40px;
+    padding: 5px;
+    background: rgb(77,183,208);
+    color: #fff;
+    text-align: center;
+}
+
+aside > div.sideMenu > ul {
+  font-size: 20px;
+  line-height: 2;
+  list-style: none;
+}
+
+aside > div.sideMenu > ul > li {
+
+}
+
+aside > div.sideMenu > ul > li > a {
+  display: block;
+  padding: 5px 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+aside > div.sideMenu > ul > li > a:hover{
+  text-decoration: none;
+  cursor: pointer;
+  background: #eee;
+}
+
+
+/*** SNSリンクボタン ***/
+
+aside > div#snsLink {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 320px;
+  padding: 30px;
+  height: 100px;
+}
+
+aside > div#snsLink > a#facebook {
+  display: inline-block;
+  margin-left: 30px;
+  padding: 2px;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  line-height: 36px;
+  color: #fff;
+  background: rgb(74,102,163);
+  cursor: pointer;
+}
+
+aside > div#snsLink > a#facebook:hover {
+  opacity: 0.5;
+}
+
+aside > div#snsLink > a#twitter {
+  display: inline-block;
+  margin-left: 30px;
+  padding: 2px;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  line-height: 36px;
+  color: #fff;
+  background: rgb(80,171,241);
+  cursor: pointer;
+}
+
+aside > div#snsLink > a#twitter:hover {
+  opacity: 0.5;
+}
+
+aside > div#snsLink > a#facebook > i.fa-facebook {
+  line-height: 36px;
+}
+
+aside > div#snsLink > a#twitter > i.fa-twitter {
+  line-height: 36px;
+}
+
+
+
+/*************
+***フッター***
+**************/
+
+/* トップへ戻るボタン */
+#toTop {
+  background: orange;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#toTop:hover {
+  opacity: 0.5;
+  transition: .8s;
+}
+
+footer {
+  background: rgb(35,47,62);
+  height: 250px;
+  width: 1280px;
+}
+
+
+footer > div.footerMenu {
+  padding: 50px 30px 10px 30px;
+  margin: 0 auto;
+  width: 450px;
+}
+
+footer > div.footerMenu > ul {
+  font-size: 15px;
+  list-style: none;
+}
+
+/** clearfoxでカラム落ち解除 **/
+footer > div.footerMenu > ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+footer > div.footerMenu > ul > li {
+  float: left;
+}
+
+footer > div.footerMenu > ul > li > a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+footer > div.footerMenu > ul > li+li > a {
+  border-left: solid 1px #aaa;
+}
+
+footer > div.footerMenuOneLine {
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 30px 30px 30px;
+  width: 450px;
+  height: 100px;
+  line-height: 60px;
+}
