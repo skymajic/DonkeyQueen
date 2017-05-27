@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+header {
+  background: rgb(255,191,0);
+  color: #fff;
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 34px;
+  line-height: 34px;
+  width: 1280px;
+  text-align: center;
+}
+
+div.container {
+  margin: 50px auto 0;
+  width: 800px;
+  height: 600px;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+div.container > form > #btnWrapper {
+  width: 200px;
+  margin: 30px auto 0;
+}

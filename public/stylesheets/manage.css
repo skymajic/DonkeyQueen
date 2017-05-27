@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/*************
+***ヘッダー***
+*************/
+
+header {
+  border-bottom: 1px solid gray;
+  height: 150px;
+  width: 1280px;
+}
+
+header:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header > h1#message {
+  background: rgb(255,191,0);
+  color: #fff;
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 34px;
+  line-height: 34px;
+  width: 1280px;
+  text-align: center;
+}
+
+header > form {
+  display: inline-block;
+  width: 315px;
+  height: 51px;
+  padding: 8px 10px;
+  margin: 32px 30px 32px 290px;
+}
+
+header > form > input[type="search"] {
+  display: inline-block;
+  padding: 2px 7px;
+  width: 250px;
+  height: 34px;
+  border: 2px solid #eee;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+}
+
+header > form > input[type="submit"] {
+  display: inline-block;
+  color: #fff;
+  margin-left: -5px;
+  padding: 0;
+  border: none;
+  width: 45px;
+  height: 34px;
+  border-radius: 0 3px 3px 0;
+}
+
+header > form > input[type="submit"]:hover {
+  opacity: 0.7;
+}
+
+header > form > input[type="search"],header > form > input[type="submit"] {
+  outline: none;
+}
+
+
+header > a.btn {
+  margin: 20px 50px 20px 200px;
+  display: inline-block;
+  width: 150px;
+  padding: 5px 10px;
+  background: orange;
+  color: #fff;
+  box-shadow: 0 5px 0 #e0e0e0;
+  position: relative;
+  border: 0;
+}
+
+header > a.btn:hover {
+  top: 5px;
+  box-shadow: none;
+  color: #fff;
+  transition: .7s;
+  opacity: 0.5;
+}
+
+/***************
+*** テーブル ***
+****************/
+
+table.table {
+  margin: 50px auto 0;
+  width: 900px;
+}
+
+tbody > tr > th {
+  width: 140px;
+}
+
+tbody > tr > td {
+  width: 140px;
+}
+
+/*********************
+***ページネーション***
+**********************/
+
+div#pagination {
+  width: 500px;
+  margin: 50px auto 0;
+  padding: 0px 100px 50px;
+}
+
+div#pagination > ul.pagination {
+  width: 300px;
+  margin: 0 auto;
+}

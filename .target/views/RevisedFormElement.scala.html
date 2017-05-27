@@ -1,9 +1,9 @@
 @(elements: helper.FieldElements)
 
-<div class="clearfix @if(elements.hasErrors) {error}">
+<div id="elementWrapper" class="@if(elements.hasErrors) {has-error}">
     <label for="@elements.id">@elements.label</label>
-    <div class="input-group">
+    <div id="inputWrapper">
         @elements.input
-        <span class="form-inline">@elements.infos.mkString(", ")</span>
+        <span id="note">@elements.infos.mkString(", ")</span>
     </div>
 </div>

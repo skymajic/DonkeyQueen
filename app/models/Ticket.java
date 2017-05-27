@@ -1,6 +1,8 @@
 package models;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,6 +26,7 @@ public class Ticket extends Model {
 	@Required
 	public String name;
 	
+//	@Required(message = "soccor,baseball,rugby,dubbedFilm,subtitledMovie,japaneseMovie,live,art")
 	public String category;
 	
 	public Integer price;
@@ -85,6 +88,11 @@ public class Ticket extends Model {
 	public static int getMaxId() {
     	return find.findRowCount();
     }
+	
+	
+	
+	
+	
 	
 }
 

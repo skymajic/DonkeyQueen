@@ -26,30 +26,31 @@
 
 @header(key:String, title:String) = {
     <th class="@key.replace(".","_") ">
-        <a href="@link(0, key)">@title</a>
+        <a href="@link(0, key)">@title<span class="glyphicon @if(currentSortBy == key) @{if(currentOrder == "asc") "glyphicon-triangle-top" else "glyphicon-triangle-bottom"}"></span></a>
     </th>
 }
 
 @main("管理画面") {
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/manage.css")">
     
-    <h1>@Messages("tickets.manage.title", currentPage.getTotalRowCount)</h1>
-
+    <header>
+    
+        <h1 id="message">@Messages("tickets.manage.title", currentPage.getTotalRowCount)</h1>
+        
+        <form action="@link(0, "name")" method="GET">
+            <input type="search"  name="f" value="@currentFilter" size="35" placeholder="チケット名で検索してください">
+            <input type="submit"  value="検索" class="btn btn-primary">
+        </form>
+        
+        <a class="btn" href="@routes.Admin.create()">Add a new ticket</a>
+    
+    </header>
+    
     @if(flash.containsKey("success")) {
         <div class="alert alert-warning" role="alert">
             <strong>Done!</strong> @flash.get("success")
         </div>
     } 
-
-    <div>
-        
-        <form action="@link(0, "name")" method="GET">
-            <input type="search"  name="f" value="@currentFilter" placeholder="チケット名で検索してください">
-            <input type="submit"  value="SEARCH" class="btn btn-primary">
-        </form>
-        
-        <a class="btn btn-success" href="@routes.Admin.create()">Add a new ticket</a>
-        
-    </div>
     
     @if(currentPage.getTotalRowCount == 0) {
         
@@ -63,16 +64,33 @@
             <thead>
                 <tr>
                     @header("name", "Ticket name")
+                    @header("category", "Ticket category")
+                    @header("price", "Ticket price")
                     @header("introduced", "Introduced")
                     @header("discontinued", "Discontinued")
                     @header("company.name", "Company")
                 </tr>
             </thead>
             <tbody>
+            
 
                 @for(ticket <- currentPage.getList) {
                     <tr>
                         <td><a href="@routes.Admin.edit(ticket.id)">@ticket.name</a></td>
+                        <td>
+                        	@if(ticket.category == null) {
+								<em>-</em>
+							} else {
+								@ticket.category
+							}
+                        </td>
+                        <td>
+                      		@if(ticket.price == null) {
+                      			<em>-</em>
+                      		} else {
+                      			@ticket.price
+                      		}
+                        </td>
                         <td>
                             @if(ticket.introduced == null) {
                                 <em>-</em>
@@ -100,7 +118,7 @@
             </tbody>
         </table>
 
-        <div>
+        <div id="pagination">
             <ul class="pagination">
                 @if(currentPage.hasPrev) {
                     <li class="previous">

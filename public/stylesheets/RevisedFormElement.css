@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+div#elementWrapper {
+  background: #e0e0e0;
+  margin-top: 30px;
+  height: 40px;
+  padding: 10px;
+}
+
+div#elementWrapper > label {
+  width: 150px;
+}
+
+div#elementWrapper > div#inputWrapper {
+  display: inline-block;
+}
+
+div#elementWrapper > div#inputWrapper > input[type="text"] {
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+div#elementWrapper > div#inputWrapper > span#note {
+  color: red;
+}

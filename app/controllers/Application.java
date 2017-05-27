@@ -85,8 +85,9 @@ public class Application extends Controller {
     	return ok(login.render("ログイン情報を入力してください。"));
     }
     
+    
     public static Result individualGoods() {
-    	return ok(individualGoods.render("チケット情報"));
+    	return ok(individualGoods.render("FIFA一次予選","soccor","2000","2012-12-12","2011-02-12"));
     }
     
     public static Result buy() {

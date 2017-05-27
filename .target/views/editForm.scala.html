@@ -5,14 +5,39 @@
  @implicitFieldConstructor = @{ FieldConstructor(RevisedFormElement.render) }  
 
 @main("チケット編集画面") {
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/editForm.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/RevisedFormElement.css")">
     
-    <h1>Edit ticket</h1>
+  <header>Edit a ticket</header>
+    
+  <div class="container">
     
     @form(routes.Admin.update(id)) {
         
         <fieldset>
         
             @inputText(ticketForm("name"), '_label -> "Ticket name")
+            
+            
+            <div id="elementWrapper">
+    			<label for="category">Category</label>
+    			<div id="inputWrapper">
+        		<select id="category" name="category">
+      				<option class="blank" value>-- Choose a category --</option>
+      				<option value="soccor">soccor</option>
+      				<option value="baseball">baseball</option>
+      				<option value="rugby">rugby</option>
+      				<option value="dubbedFilm">dubbedFilm</option>
+      				<option value="subtitledMovie">subtitledMovie</option>
+      				<option value="japaneseMovie">japaneseMovie</option>
+      				<option value="live">live</option>
+      				<option value="art">art</option>
+    			</select>
+    			</div>
+			</div>
+         
+            
+            @inputText(ticketForm("price"), '_label -> "Ticket price")
             @inputText(ticketForm("introduced"), '_label -> "Introduced date")
             @inputText(ticketForm("discontinued"), '_label -> "Discontinued date")
             
@@ -22,18 +47,22 @@
                 '_label -> "Company", '_default -> "-- Choose a company --",
                 '_showConstraints -> false
             )
+            
+    			
+  				
         
         </fieldset>
         
-        <div>
-            <input type="submit" value="Update this ticket" class="btn btn-primary"> or 
+        <div id="btnWrapper">
+            <input type="submit" value="Update this ticket" class="btn btn-primary">
             <a href="@routes.Admin.manage()" class="btn btn-success">Cancel</a> 
         </div>
         
     }
     
-    @form(routes.Admin.delete(id), 'class -> "topRight") {
+    @form(routes.Admin.delete(id)) {
         <input type="submit" value="Delete this ticket" class="btn btn-danger">
     }
+  </div>
     
 }
