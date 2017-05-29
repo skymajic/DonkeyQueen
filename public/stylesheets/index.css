@@ -198,26 +198,22 @@ div.container > article > div.ticketContainer > div#rowElement {
   margin: 20px;
 }
 
-div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] {
-  position: relative;
-  display: inline-block;
+div.container > article > div.ticketContainer > div#rowElement > form {
   width: 217px;
   height: 217px;
-  z-index: 0;
+  position: relative;
 }
 
-div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"]:hover {
+div.container > article > div.ticketContainer > div#rowElement > form:hover {
   opacity: 0.5;
 }
 
-div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > img#sampleImg {
-  display: inline-block;
+div.container > article > div.ticketContainer > div#rowElement > form > img#sampleImg {
   width: 217px;
   height: 217px;
 }
 
-
-div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child {
+div.container > article > div.ticketContainer > div#rowElement > form > p.child {
   color: #fff;
   background: orange;
   opacity: 0.7;
@@ -231,9 +227,16 @@ div.container > article > div.ticketContainer > div#rowElement > a[href="/indivi
   border-radius: 10px 0 0 0;
 }
 
-div.container > article > div.ticketContainer > div#rowElement > a[href="/individualGoods"] > p.child:hover {
-  opacity: 0.3;
+div.container > article > div.ticketContainer > div#rowElement > form > input[type="submit"] {
+  width: 217px;
+  height: 217px;
+  position: absolute;
+  opacity: 0;
+  color: #fff;
+  top: 0;
+  left: 0;
 }
+
 
 
 /*** ページング ***/

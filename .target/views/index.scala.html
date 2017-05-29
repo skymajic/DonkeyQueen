@@ -64,10 +64,14 @@
 		<div class="ticketContainer">
 	 		@for(ticket <- currentPage.getList){
 	     		<div id="rowElement">
-	     			<a href="/individualGoods">
-	     			  <img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
-	     			  <p class="child">@ticket.name</p>
-	     			</a>
+	     		
+	     			@helper.form(action = routes.Application.individualGoods){
+	     				<img src="@routes.Assets.at("images/soccor01.jpg")" id="sampleImg">
+	     			    <p class="child">@ticket.name</p>	     			    
+	     			    <input type="hidden" name="ticketID" value="@ticket.id">
+	     			    <input type="submit" value="送信">
+	     			}
+	     		
 	     		</div>  	
 			}
 		</div>

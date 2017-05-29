@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, ticketID: Long)
 
 @main("Login Form") {
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
@@ -29,6 +29,10 @@
 		</form>
 	</div>
 	
-	<a href="/buy">個別商品購入画面へ</a>
+	@* <a href="/buy">個別商品購入画面へ</a> *@
+	@helper.form(action = routes.Application.buy){
+		<input type="hidden" name="ticketID" value="@ticketID">
+	  	<input type="submit" value="個別商品購入画面へ">
+	}
 
 }

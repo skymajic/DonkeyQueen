@@ -1,4 +1,4 @@
-@(elements_01: String, elements_02: String, elements_03: String, elements_04: String, elements_05: String)
+@(elements_01: String, elements_02: String, elements_03: String, elements_04: String, elements_05: String, ticket: Ticket)
 
 @main("個別商品購入画面"){
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/buy.css")">
@@ -17,8 +17,10 @@
 		</ul>
 		
 		<table class="table table-striped table-bordered table-hover table-condensed"> 
-			<tr><td>チケット名</td><td>FIFA一次予選</td></tr>
-			<tr><td>価格</td><td>¥5000</td></tr>
+			@* <tr><td>チケット名</td><td>FIFA一次予選</td></tr> *@
+			@* <tr><td>価格</td><td>¥5000</td></tr> *@
+			<tr><td>チケット名</td><td>@ticket.name</td></tr>
+			<tr><td>価格</td><td>@ticket.price</td></tr>
 		</table>
 		
 		<a href="/finished" id="button">購入する</a>

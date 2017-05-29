@@ -56,7 +56,31 @@ main > p {
   padding-left: 10px;
 }
 
-main > a#button {
+main > form > input[type="submit"] {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  background-color: #FFCC00;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 150px;
+  text-align: center;
+  height: 40px;
+  line-height: 30px;
+  box-shadow: 0 6px 0 #FF9900;
+  border: 0;
+  float: right;
+}
+
+main > form > input[type="submit"]:hover {
+  text-decoration: none;
+  box-shadow: none;
+  top: 6px;
+  cursor: pointer;
+  outline: none;
+}
+
+/*main > a#button {
   position: relative;
   display: inline-block;
   color: #fff;
@@ -76,7 +100,7 @@ main > a#button:hover {
   box-shadow: none;
   top: 6px;
   cursor: pointer;
-}
+}*/
 
 /*******************
 ****** フッター ****

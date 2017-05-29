@@ -21,11 +21,11 @@ POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
 
 # Auth page
 GET		/register					controllers.Application.register()
-GET		/login						controllers.Application.login()
+POST	/login						controllers.Application.login()
 
 # Buy process page
-GET		/individualGoods			controllers.Application.individualGoods()
-GET		/buy						controllers.Application.buy()
+POST	/individualGoods		    controllers.Application.individualGoods()
+POST	/buy						controllers.Application.buy()
 GET		/finished					controllers.Application.finished()
 
 
