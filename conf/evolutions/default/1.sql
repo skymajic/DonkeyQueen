@@ -17,6 +17,7 @@ create table ticket (
   introduced                timestamp,
   discontinued              timestamp,
   company_id                bigint,
+  image_url                 varchar(255),
   constraint pk_ticket primary key (id))
 ;
 

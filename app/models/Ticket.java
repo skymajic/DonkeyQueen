@@ -37,6 +37,8 @@ public class Ticket extends Model {
 	@ManyToOne
 	public Company company;
 	
+	public String imageURL;
+	
 	public static Finder<Long,Ticket> find = new Finder<Long,Ticket>(Long.class, Ticket.class);
 	
 	/**
@@ -85,6 +87,7 @@ public class Ticket extends Model {
 	public static int getMaxId() {
     	return find.findRowCount();
     }
+	
 	
 	// IDを引数にとり、そのIDに該当するチケットのレコードを取り出して、返り値として返すメソッド
 	public static Ticket getTicketRecordById(long id) {
