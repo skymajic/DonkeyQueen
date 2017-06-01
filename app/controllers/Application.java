@@ -35,7 +35,6 @@ public class Application extends Controller {
 	     */
 	    public static Result authenticate() {
 	        Form<Login> loginForm = form(Login.class).bindFromRequest();
-	        System.out.println("デバッグでござる" + loginForm.get().name + " " + loginForm.get().password);
 	        if(loginForm.hasErrors()) {
 	            return badRequest(login.render("ログイン情報を入力してください。",loginForm));
 	        } else {

@@ -25,7 +25,13 @@
 
 	
 	<header>
-	 <div id="banner"></div>
+	 <div id="banner">
+	 	@if( session.get("name") == null || session.get("name") == "" ) {
+    		<p>ようこそゲストさん</p>
+		} else {
+    		<p>ようこそ@session.get("name")さん</p>
+		} 
+	 </div>
 	 <div id="donkeywrapper">
 	 	<div id="logo">DonkeyQueen</div>
 	 	<form action="@link(0, "name")" method="GET" id="search">
