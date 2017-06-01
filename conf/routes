@@ -21,8 +21,8 @@ POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
 
 # Auth page
 GET		/register					controllers.Application.register()
-POST	/login						controllers.Application.login()
 GET 	/login						controllers.Application.login()
+POST    /login                      controllers.Application.authenticate()
 
 # Buy process page
 POST	/individualGoods		    controllers.Application.individualGoods()
@@ -39,6 +39,12 @@ GET     /live						controllers.Application.live(p:Int ?= 0, s ?= "name", o ?= "a
 GET     /rugby						controllers.Application.rugby(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "rugby")					
 GET     /soccor						controllers.Application.soccor(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "soccor")
 GET     /subtitledMovie				controllers.Application.subtitledMovie(p:Int ?= 0, s ?= "name", o ?= "asc", c ?= "subtitledMovie")
+
+# マイページ
+GET		/myPage						controllers.Application.myPage()
+GET		/boughtTicketHistory		controllers.Application.boughtTicketHistory()
+GET		/accountInfo				controllers.Application.accountInfo()
+GET		/miniGame					controllers.Application.miniGame()
 
 # ページ遷移 サンプル
 GET     /rarara						controllers.Application.rarara()	

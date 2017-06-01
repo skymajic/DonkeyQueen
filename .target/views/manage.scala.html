@@ -64,8 +64,8 @@
             <thead>
                 <tr>
                     @header("name", "Ticket name")
-                    @header("category", "Ticket category")
-                    @header("price", "Ticket price")
+                    @header("category", "Category")
+                    @header("price", "Price")
                     @header("introduced", "Introduced")
                     @header("discontinued", "Discontinued")
                     @header("company.name", "Company")
@@ -76,42 +76,43 @@
 
                 @for(ticket <- currentPage.getList) {
                     <tr>
-                        <td><a href="@routes.Admin.edit(ticket.id)">@ticket.name</a></td>
-                        <td>
+                        <td class="ticketName"><a href="@routes.Admin.edit(ticket.id)">@ticket.name</a></td>
+                        <td class="category">
                         	@if(ticket.category == null) {
 								<em>-</em>
 							} else {
 								@ticket.category
 							}
                         </td>
-                        <td>
+                        <td class="price">
                       		@if(ticket.price == null) {
                       			<em>-</em>
                       		} else {
                       			@ticket.price
                       		}
                         </td>
-                        <td>
+                        <td class="introduced">
                             @if(ticket.introduced == null) {
                                 <em>-</em>
                             } else {
                                 @ticket.introduced.format("dd MMM yyyy")
                             }
                         </td>
-                        <td>
+                        <td class="discontinued">
                             @if(ticket.discontinued == null) {
                                 <em>-</em>
                             } else {
                                 @ticket.discontinued.format("dd MMM yyyy")
                             }
                         </td>
-                        <td>
+                        <td class="companyName">
                             @if(ticket.company == null) {
                                 <em>-</em>
                             } else {
                                 @ticket.company.name
                             }
                         </td>
+                        
                     </tr>
                 }
 

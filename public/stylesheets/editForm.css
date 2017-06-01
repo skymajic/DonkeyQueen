@@ -21,10 +21,16 @@ div.container {
   border: 1px solid #e0e0e0;
 }
 
+
+div.container > form:nth-child(1) input[type="text"]#imageURL{
+  width: 400px;
+}
+
 div.container > form:nth-child(2) {
   margin: 5px auto 0;
   width: 211px;
 }
+
 div.container > form:nth-child(2) > input[type="submit"] {
   width: 211px;
 }
@@ -34,4 +40,8 @@ div.container > form:nth-child(2) > input[type="submit"] {
 div.container > form > #btnWrapper {
   width: 211px;
   margin: 30px auto 0;
+}
+
+div.container > form  #elementWrapper:nth-child(1) {
+  margin-top: 0;
 }

@@ -21,9 +21,17 @@ create table ticket (
   constraint pk_ticket primary key (id))
 ;
 
+create table account (
+  name                      varchar(255) not null,
+  password                  varchar(255),
+  constraint pk_account primary key (name))
+;
+
 create sequence company_seq;
 
 create sequence ticket_seq;
+
+create sequence account_seq;
 
 alter table ticket add constraint fk_ticket_company_1 foreign key (company_id) references company (id) on delete restrict on update restrict;
 create index ix_ticket_company_1 on ticket (company_id);
@@ -38,9 +46,13 @@ drop table if exists company;
 
 drop table if exists ticket;
 
+drop table if exists account;
+
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists company_seq;
 
 drop sequence if exists ticket_seq;
+
+drop sequence if exists account_seq;
 

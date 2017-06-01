@@ -80,27 +80,7 @@ main > form > input[type="submit"]:hover {
   outline: none;
 }
 
-/*main > a#button {
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  background-color: #FFCC00;
-  border-radius: 5px;
-  padding: 5px 10px;
-  width: 150px;
-  text-align: center;
-  height: 40px;
-  line-height: 30px;
-  box-shadow: 0 6px 0 #FF9900;
-  float: right;
-}
 
-main > a#button:hover {
-  text-decoration: none;
-  box-shadow: none;
-  top: 6px;
-  cursor: pointer;
-}*/
 
 /*******************
 ****** フッター ****

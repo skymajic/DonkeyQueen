@@ -19,12 +19,17 @@
 			<tr><td>販売終了日</td><td>@discontinued</td></tr>
 		</table>	
 	
-		@* <a href="/login" id="button">購入画面へ進む</a> *@
-		
+		@helper.form(action = routes.Application.buy){
+			<input type="hidden" name="ticketID" value="@ticketID">
+			<input type="submit" value="購入画面へ進む">
+		}
+	
+		@***********************************************	
 		@helper.form(action = routes.Application.login){
 			<input type="hidden" name="ticketID" value="@ticketID">
 			<input type="submit" value="購入画面へ進む">
 		}
+		***********************************************@
 		
 		
 	

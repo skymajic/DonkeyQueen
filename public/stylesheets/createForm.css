@@ -25,3 +25,11 @@ div.container > form > #btnWrapper {
   width: 200px;
   margin: 30px auto 0;
 }
+
+div.container > form:nth-child(1) input[type="text"]#imageURL{
+  width: 400px;
+}
+
+div.container > form  #elementWrapper:nth-child(1) {
+  margin-top: 0;
+}

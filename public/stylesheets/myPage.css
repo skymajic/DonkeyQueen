@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+a[href="/"] {
+  text-decoration: none;
+}
+
+header {
+    background: rgb(255,191,0);
+    color: #fff;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 34px;
+    line-height: 34px;
+    width: 1280px;
+    text-align: center;
+}
+
+header:hover {
+  opacity: 0.5;
+  transition: .7s;
+}
+
+div.container {
+    margin: 100px auto 0;
+    width: 700px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+div.container > a {
+  display: inline-block;
+  width: 170px;
+  text-align: center;
+  height: 300px;
+  line-height: 300px;
+  margin-left: 40px;
+  background: #e0e0e0;
+  text-decoration: none;
+  color: #fff;
+}
+
+div.container > a:hover {
+  opacity: 0.5;
+  transition: .7s;
+}

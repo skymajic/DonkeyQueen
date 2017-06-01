@@ -1,4 +1,4 @@
-@(elements_01: String, elements_02: String, elements_03: String, elements_04: String, elements_05: String, message: String)
+@(elements_01: String, elements_02: String, elements_03: String, elements_04: String, message: String)
 
 @main("個別商品購入完了画面"){
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/finished.css")">
@@ -10,10 +10,9 @@
 	<div class="container">
 	  <ul class="breadcrumb">
   			<li><a href="/">@elements_01</a></li>
-  			<li><a href="/individualGoods">@elements_02</a></li>
+  			<li>@elements_02</li>
   			<li>@elements_03</li>
-  			<li>@elements_04</li>
-  			<li class="active">@elements_05</li>
+  			<li class="active">@elements_04</li>
 	  </ul>
 	  <p>@message</p>
 	  <a href="/">トップ画面へ戻る</a>

@@ -49,7 +49,7 @@ div.container {
 /*** パンくずリスト ***/
 
 div.container > ul.breadcrumb {
-  width: 415px;
+  width: 330px;
   margin-left: 67px;
 }
 

@@ -1,9 +1,12 @@
 package controllers;
 
+import static play.data.Form.form;
+
 import java.util.Map;
 
 import com.avaje.ebean.Page;
 
+import controllers.Application.Login;
 import models.*;
 import play.*;
 import play.data.Form;
@@ -13,6 +16,41 @@ import views.html.*;
 
 public class Application extends Controller {
 	
+	 public static class Login {
+	        
+	        public String name;
+	        public String password;
+	        
+	        public String validate() {
+	            if(User.authenticate(name, password) == null) {
+	                return "Invalid user or password";
+	            }
+	            return null;
+	        }
+	        
+	  }
+	 
+	 /**
+	     * Handle login form submission.
+	     */
+	    public static Result authenticate() {
+	        Form<Login> loginForm = form(Login.class).bindFromRequest();
+	        System.out.println("デバッグでござる" + loginForm.get().name + " " + loginForm.get().password);
+	        if(loginForm.hasErrors()) {
+	            return badRequest(login.render("ログイン情報を入力してください。",loginForm));
+	        } else {
+	            session("name", loginForm.get().name);
+	            return redirect(
+	                routes.Application.index(0,"name","asc","")
+	            );
+	        }
+	    }
+	    
+	   
+	    public static Result login() {
+	        return ok(login.render("ログイン情報を入力してください。",form(Login.class)));
+	    }
+	 
 	
 	
     
@@ -105,24 +143,36 @@ public class Application extends Controller {
     	return ok(individualGoods.render(ticket.name,ticket.category,ticket.price,ticket.introduced,ticket.discontinued,ticket.id));
     }
     
-    public static Result login() {
-    	Map<String,String[]> form = request().body().asFormUrlEncoded();
-    	String[] ticketID = form.get("ticketID");   	
-    	long id = Long.parseLong(ticketID[0]);
-    	Ticket ticket = Ticket.getTicketRecordById(id);
-    	return ok(login.render("ログイン情報を入力してください。",ticket.id));
-    }
-    
+    @Security.Authenticated(Secured.class)
     public static Result buy() {
     	Map<String,String[]> form = request().body().asFormUrlEncoded();
     	String[] ticketID = form.get("ticketID");   	
     	long id = Long.parseLong(ticketID[0]);
     	Ticket ticket = Ticket.getTicketRecordById(id);
-    	return ok(buy.render("商品検索","個別商品","ログイン","購入","購入完了",ticket));
+    	return ok(buy.render("商品検索","個別商品","購入","購入完了",ticket));
     }
     
+    @Security.Authenticated(Secured.class)
     public static Result finished() {
-    	return ok(finished.render("商品検索","個別商品","ログイン","購入","購入完了","購入を完了しました。"));
+    	return ok(finished.render("商品検索","個別商品","購入","購入完了","購入を完了しました。"));
     } 
+    
+    // マイページ
+    @Security.Authenticated(Secured.class)
+    public static Result myPage() {
+    	return ok(myPage.render("ゲスト"));
+    }
+    
+    public static Result boughtTicketHistory() {
+    	return ok(boughtTicketHistory.render("チケット購入履歴です"));
+    }
+    
+    public static Result accountInfo() {
+    	return ok(accountInfo.render("アカウント情報です"));
+    }
+    
+    public static Result miniGame() {
+    	return ok(miniGame.render("ミニゲームです"));
+    }
 
 }
