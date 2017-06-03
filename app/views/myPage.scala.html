@@ -1,15 +1,18 @@
-@(msg: String)
+@(message: String)
 
-@main("My Page"){
-<link rel="stylesheet" href="@routes.Assets.at("stylesheets/myPage.css")">
+@main("アカウント情報"){
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/myPage.css")">
+
+	
 	<a href="/">
-		<header>こんにちは @msg さん</header>
+		<header>
+			@session.get("name") @message	
+		</header>
 	</a>
 	
 	<div class="container">
-		<a href="/boughtTicketHistory">購入チケット履歴</a>
-		<a href="/accountInfo">アカウント情報</a>
-		<a href="/miniGame">ミニゲーム</a> 
+	  <p>ユーザ名: @session.get("name")</p>
+	  <p>パスワード: @session.get("password")</p>
 	</div>
 	
 }

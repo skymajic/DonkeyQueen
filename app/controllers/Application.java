@@ -1,17 +1,13 @@
 package controllers;
 
 import static play.data.Form.form;
-
 import java.util.Map;
-
 import com.avaje.ebean.Page;
-
 import controllers.Application.Login;
 import models.*;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
-
 import views.html.*;
 
 public class Application extends Controller {
@@ -45,9 +41,44 @@ public class Application extends Controller {
 	        }
 	    }
 	    
+	    /**
+	     * マイページにかける認証
+	     * @return
+	     */
+	    public static Result myPageAuthenticate() {
+	    	Form<Login> loginForm = form(Login.class).bindFromRequest();
+	    	if(loginForm.hasErrors()) {
+	    		return badRequest(myPageLogin.render("ログイン情報を入力してください。",loginForm));
+	    	} else {
+	    		session("name", loginForm.get().name);
+	    		session("password", loginForm.get().password);
+	    		return redirect(
+	    	    	routes.Application.myPage()
+	    	    );
+	    	}
+	    	
+	    }
+	    
 	   
 	    public static Result login() {
 	        return ok(login.render("ログイン情報を入力してください。",form(Login.class)));
+	    }
+	    
+	    public static Result myPageLogin() {
+	    	return ok(myPageLogin.render("ログイン情報を入力してください。",form(Login.class)));
+	    }
+	    
+	    
+	    
+	    /**
+	     * Logout and clean the session.
+	     */
+	    public static Result logout() {
+	        session().clear();
+	        flash("success", "You've been logged out");
+	        return redirect(
+	            routes.Application.index(0,"name","asc","")
+	        );
 	    }
 	 
 	
@@ -120,9 +151,31 @@ public class Application extends Controller {
     	return ok(rarara.render("This is a rarara."));
     }
     
-    public static Result register() {
-    	return ok(register.render("新規会員登録情報を入力してください。"));
-    }
+    
+    /**
+	 * 新規登録画面
+	 * @return
+	 */
+	public static Result register() {
+		Form<User> f = new Form(User.class);
+		return ok(register.render("新規会員登録情報を入力してください。", f));
+	}
+	
+	public static Result userCreate() {
+		Form<User> f = new Form(User.class).bindFromRequest();
+		
+		// ユーザ名の重複を調査する処理
+		User data = f.get();
+		if (User.findByName(data.name) != null) {
+			return badRequest(register.render("そのユーザ名は既に登録されています",f));
+			
+		} else if(!f.hasErrors()) {
+			data.save();
+			return redirect("/");
+		} else {
+			return badRequest(register.render("ERROR", f));
+		}
+	}
     
     
     /**
@@ -139,10 +192,10 @@ public class Application extends Controller {
     	String[] ticketID = form.get("ticketID");   	
     	long id = Long.parseLong(ticketID[0]);
     	Ticket ticket = Ticket.getTicketRecordById(id);
-    	return ok(individualGoods.render(ticket.name,ticket.category,ticket.price,ticket.introduced,ticket.discontinued,ticket.id));
+      	return ok(individualGoods.render(ticket.name,ticket.category,ticket.price,ticket.introduced,ticket.discontinued,ticket.id));	
     }
     
-    @Security.Authenticated(Secured.class)
+    
     public static Result buy() {
     	Map<String,String[]> form = request().body().asFormUrlEncoded();
     	String[] ticketID = form.get("ticketID");   	
@@ -151,27 +204,17 @@ public class Application extends Controller {
     	return ok(buy.render("商品検索","個別商品","購入","購入完了",ticket));
     }
     
-    @Security.Authenticated(Secured.class)
+    
     public static Result finished() {
     	return ok(finished.render("商品検索","個別商品","購入","購入完了","購入を完了しました。"));
     } 
     
     // マイページ
-    @Security.Authenticated(Secured.class)
+    @Security.Authenticated(MyPageSecured.class)
     public static Result myPage() {
-    	return ok(myPage.render("ゲスト"));
+    	return ok(myPage.render("さんのアカウント情報です"));
     }
     
-    public static Result boughtTicketHistory() {
-    	return ok(boughtTicketHistory.render("チケット購入履歴です"));
-    }
     
-    public static Result accountInfo() {
-    	return ok(accountInfo.render("アカウント情報です"));
-    }
-    
-    public static Result miniGame() {
-    	return ok(miniGame.render("ミニゲームです"));
-    }
 
 }

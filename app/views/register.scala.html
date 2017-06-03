@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, form1: Form[models.User])
 
 @main("Register Form") {
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/register.css")">
@@ -9,24 +9,31 @@
       </header>
 	</a>
 	
-	
-
 	<div class="registerForm">
-		<form action="#" method="POST">
-			
+	
+	@helper.form(action = routes.Application.userCreate){
+		
 			<div class="inputWrapper">
-			  <p><label for="userName">*ユーザ名</label></p>
-			  <p><input type="text" id="userName"></p>
+			@(helper.inputText (
+				field = form1("name"),
+				'_label -> "*ユーザ名"
+			))
 			</div>
 			
 			<div class="inputWrapper">
-			  <p><label for="password">*パスワード</label></p>
-			  <p><input type="password" id="password"></p>
+			@(helper.inputText (
+				field = form1("password"),
+				'_label -> "*パスワード"
+			))
 			</div>
 			
 			<p><input type="submit" value="送信"></p>
-			
-		</form>
+		
+	
+	}
 	</div>
+	
+
+	
 
 }

@@ -21,12 +21,21 @@ POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
 
 # Auth page
 GET		/register					controllers.Application.register()
+POST	/userCreate					controllers.Application.userCreate()
 GET 	/login						controllers.Application.login()
 POST    /login                      controllers.Application.authenticate()
+
+# Try this
+GET		/myPageLogin				controllers.Application.myPageLogin()
+POST	/myPageLogin				controllers.Application.myPageAuthenticate()
+
+
+GET     /logout                     controllers.Application.logout()
 
 # Buy process page
 POST	/individualGoods		    controllers.Application.individualGoods()
 POST	/buy						controllers.Application.buy()
+# GET		/buy						controllers.Application.buy()
 GET		/finished					controllers.Application.finished()
 
 
@@ -42,9 +51,7 @@ GET     /subtitledMovie				controllers.Application.subtitledMovie(p:Int ?= 0, s 
 
 # マイページ
 GET		/myPage						controllers.Application.myPage()
-GET		/boughtTicketHistory		controllers.Application.boughtTicketHistory()
-GET		/accountInfo				controllers.Application.accountInfo()
-GET		/miniGame					controllers.Application.miniGame()
+
 
 # ページ遷移 サンプル
 GET     /rarara						controllers.Application.rarara()	

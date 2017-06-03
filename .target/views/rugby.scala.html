@@ -23,7 +23,13 @@
 
 	
 	<header>
-	 <div id="banner"></div>
+	 <div id="banner">
+	 	@if( session.get("name") == null || session.get("name") == "" ) {
+    		<p>ようこそゲストさん</p>
+		} else {
+    		<p>ようこそ@session.get("name")さん</p>
+		} 
+	 </div>
 	 <div id="donkeywrapper">
 	 	<div id="logo">DonkeyQueen</div>
 	 	<form action="@link(0, "name")" method="GET" id="search">
@@ -51,10 +57,22 @@
 	 		<li><a href="/art"><i class="fa fa-university" aria-hidden="true"></i> アート</a></li>
 	 		<li><a href="/" id="top"><i class="fa fa-caret-up" aria-hidden="true"></i> Top</a></li>
 	 		<li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> 新規登録</a></li>
-	 		<li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン</a></li>
-	 		<li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> マイページ</a></li>
+	 		
+	 		@if( session.get("name") == null || session.get("name") == "" ) {
+				<li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン</a></li>	
+			} else {
+				<li id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト</li>
+			}
+	 		
+	 		<li><a href="/myPage"><i class="fa fa-user-o" aria-hidden="true"></i> マイページ</a></li>
 	 	</ul>
 	 </nav>	
+	 
+	 <!-- モーダルのコンテンツ -->
+    <div id="modal-content">
+      <p>ログアウトしました</p>
+      <a href="@routes.Application.logout()" id="modal-close"><i class="fa fa-window-close-o" aria-hidden="true"></i> 閉じる</a>
+    </div>
 	</header>
 	
 	<div class="container">

@@ -38,8 +38,7 @@ div.registerForm > form {
   width: 300px;
   height: 350px;
   margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 10px;
 }
 
 div.registerForm > form > div.inputWrapper {
@@ -47,7 +46,7 @@ div.registerForm > form > div.inputWrapper {
   margin-bottom: 40px;
 }
 
-div.registerForm > form > div.inputWrapper > p > input[type="text"] {
+div.registerForm > form > div.inputWrapper > dl > dd > input[type="text"] {
   width: 280px;
   border-radius: 3px;
   border: 1px solid #a6a6a6;
@@ -55,12 +54,16 @@ div.registerForm > form > div.inputWrapper > p > input[type="text"] {
   cursor: pointer;
 }
 
-div.registerForm > form > div.inputWrapper > p > input[type="password"] {
+div.registerForm > form > div.inputWrapper > dl > dd > input[type="password"] {
   width: 280px;
   border-radius: 3px;
   border: 1px solid #a6a6a6;
   padding: 3px 7px;
   cursor: pointer;
+}
+
+div.registerForm > form > div.inputWrapper > dl > dd.info {
+  color: red;
 }
 
 div.registerForm > form > p > input[type="submit"] {

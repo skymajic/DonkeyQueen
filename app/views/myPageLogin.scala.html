@@ -1,0 +1,39 @@
+@(message: String, form: Form[Application.Login])
+
+@main("Login Form") {
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+	
+	<a href="/">
+	<header>
+		<p>@message</p>
+	</header>
+	</a>
+	
+	
+	@helper.form(routes.Application.myPageAuthenticate) {
+	
+	<div class="loginForm">
+		<div class="innerWrapper">
+			
+			<div class="inputWrapper">
+			  <p><label for="userName">*ユーザ名</label></p>
+			  <p><input type="text" id="userName" name="name" value="@form("name").value"></p>
+			</div>
+			
+			<div class="inputWrapper">
+			  <p><label for="password">*パスワード</label></p>
+			  <p><input type="password" id="password" name="password"></p>
+			</div>
+			
+			<p><input type="submit" value="送信"></p>
+			
+		</div>
+	</div>
+	}
+	
+
+}
+
+
+
+
