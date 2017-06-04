@@ -145,13 +145,6 @@ public class Application extends Controller {
     	);
     }
     
-   
-    // サンプルページ
-    public static Result rarara() {
-    	return ok(rarara.render("This is a rarara."));
-    }
-    
-    
     /**
 	 * 新規登録画面
 	 * @return
@@ -215,6 +208,7 @@ public class Application extends Controller {
     	return ok(myPage.render("さんのアカウント情報です"));
     }
     
+  
     
 
 }

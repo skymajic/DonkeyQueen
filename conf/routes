@@ -30,6 +30,7 @@ GET		/myPageLogin				controllers.Application.myPageLogin()
 POST	/myPageLogin				controllers.Application.myPageAuthenticate()
 
 
+
 GET     /logout                     controllers.Application.logout()
 
 # Buy process page
@@ -51,10 +52,6 @@ GET     /subtitledMovie				controllers.Application.subtitledMovie(p:Int ?= 0, s 
 
 # マイページ
 GET		/myPage						controllers.Application.myPage()
-
-
-# ページ遷移 サンプル
-GET     /rarara						controllers.Application.rarara()	
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
