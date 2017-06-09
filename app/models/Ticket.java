@@ -82,14 +82,19 @@ public class Ticket extends Model {
 				.getPage(page);
 	}
 	
-	
-	// idの最大値を取得するメソッド
+	/**
+	 * idの最大値を取得するメソッド
+	 * @return
+	 */
 	public static int getMaxId() {
     	return find.findRowCount();
     }
 	
-	
-	// IDを引数にとり、そのIDに該当するチケットのレコードを取り出して、返り値として返すメソッド
+	/**
+	 * IDを引数にとり、そのIDに該当するチケットのレコードを取り出して、返り値として返すメソッド
+	 * @param id
+	 * @return
+	 */
 	public static Ticket getTicketRecordById(long id) {
 		return find.byId(id);
 	}

@@ -12,79 +12,84 @@ import views.html.*;
 
 public class Application extends Controller {
 	
+	/**
+	 * ログインオブジェクト
+	 */
 	 public static class Login {
 	        
-	        public String name;
-	        public String password;
+	    public String name;
+	    public String password;
 	        
-	        public String validate() {
-	            if(User.authenticate(name, password) == null) {
-	                return "Invalid user or password";
-	            }
-	            return null;
-	        }
+	    public String validate() {
+	       if(User.authenticate(name, password) == null) {
+	          return "Invalid user or password";
+	       }
+	          return null;
+	    }
 	        
-	  }
+	 }
 	 
 	 /**
-	     * Handle login form submission.
-	     */
-	    public static Result authenticate() {
-	        Form<Login> loginForm = form(Login.class).bindFromRequest();
-	        if(loginForm.hasErrors()) {
-	            return badRequest(login.render("ログイン情報を入力してください。",loginForm));
-	        } else {
-	            session("name", loginForm.get().name);
-	            return redirect(
-	                routes.Application.index(0,"name","asc","")
-	            );
-	        }
+	  * Handle login form submission.
+	  */
+	 public static Result authenticate() {
+	    Form<Login> loginForm = form(Login.class).bindFromRequest();
+	    if(loginForm.hasErrors()) {
+	       return badRequest(login.render("ログイン情報を入力してください。",loginForm));
+	    } else {
+	       session("name", loginForm.get().name);
+	       return redirect(
+	          routes.Application.index(0,"name","asc","")
+	       );
 	    }
+	 }
 	    
-	    /**
-	     * マイページにかける認証
-	     * @return
-	     */
-	    public static Result myPageAuthenticate() {
-	    	Form<Login> loginForm = form(Login.class).bindFromRequest();
-	    	if(loginForm.hasErrors()) {
-	    		return badRequest(myPageLogin.render("ログイン情報を入力してください。",loginForm));
-	    	} else {
-	    		session("name", loginForm.get().name);
-	    		session("password", loginForm.get().password);
-	    		return redirect(
-	    	    	routes.Application.myPage()
-	    	    );
-	    	}
-	    	
+	 /**
+	  * マイページにかける認証
+	  * @return
+	  */
+	 public static Result myPageAuthenticate() {
+	    Form<Login> loginForm = form(Login.class).bindFromRequest();
+	    if(loginForm.hasErrors()) {
+	       return badRequest(myPageLogin.render("ログイン情報を入力してください。",loginForm));
+	    } else {
+	       session("name", loginForm.get().name);
+	       session("password", loginForm.get().password);
+	       return redirect(
+	    	  routes.Application.myPage()
+	       );
 	    }
+	    	
+	 }
 	    
 	   
-	    public static Result login() {
-	        return ok(login.render("ログイン情報を入力してください。",form(Login.class)));
-	    }
+	 public static Result login() {
+	    return ok(login.render("ログイン情報を入力してください。",form(Login.class)));
+	 }
 	    
-	    public static Result myPageLogin() {
-	    	return ok(myPageLogin.render("ログイン情報を入力してください。",form(Login.class)));
-	    }
+	 public static Result myPageLogin() {
+	    return ok(myPageLogin.render("ログイン情報を入力してください。",form(Login.class)));
+	 }
 	    
-	    
-	    
-	    /**
-	     * Logout and clean the session.
-	     */
-	    public static Result logout() {
-	        session().clear();
-	        flash("success", "You've been logged out");
-	        return redirect(
-	            routes.Application.index(0,"name","asc","")
-	        );
-	    }
-	 
+	 /**
+	  * Logout and clean the session.
+	  */
+	 public static Result logout() {
+	    session().clear();
+	    flash("success", "You've been logged out");
+	    return redirect(
+	       routes.Application.index(0,"name","asc","")
+	    );
+	 }
 	
-	
-    
-	// Home page
+	/**
+	 * Home page
+	 * @param page
+	 * @param sortBy
+	 * @param order
+	 * @param filter
+	 * @return
+	 */
     public static Result index(int page, String sortBy, String order,String filter) {
     	return ok(
     		index.render(Ticket.page(page, 9, sortBy, order ,filter),sortBy, order,filter)	
@@ -155,19 +160,24 @@ public class Application extends Controller {
 	}
 	
 	public static Result userCreate() {
-		Form<User> f = new Form(User.class).bindFromRequest();
-		
-		// ユーザ名の重複を調査する処理
+		Form<User> f = new Form(User.class).bindFromRequest();		
 		User data = f.get();
+		
 		if (User.findByName(data.name) != null) {
+			
 			return badRequest(register.render("そのユーザ名は既に登録されています",f));
 			
 		} else if(!f.hasErrors()) {
+		
 			data.save();
 			return redirect("/");
+		
 		} else {
+		
 			return badRequest(register.render("ERROR", f));
+		
 		}
+		
 	}
     
     
@@ -180,7 +190,6 @@ public class Application extends Controller {
      * @return
      */
     public static Result individualGoods() {
-    	// index.scala.htmlのフォームヘルパーから、idを受け取る処理。bindFromRequestのような処理
     	Map<String,String[]> form = request().body().asFormUrlEncoded();
     	String[] ticketID = form.get("ticketID");   	
     	long id = Long.parseLong(ticketID[0]);
@@ -202,13 +211,13 @@ public class Application extends Controller {
     	return ok(finished.render("商品検索","個別商品","購入","購入完了","購入を完了しました。"));
     } 
     
-    // マイページ
+    /**
+     * マイページ
+     * @return
+     */
     @Security.Authenticated(MyPageSecured.class)
     public static Result myPage() {
     	return ok(myPage.render("さんのアカウント情報です"));
     }
-    
-  
-    
 
 }

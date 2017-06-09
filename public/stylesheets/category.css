@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/****************************
+*********** ヘッダー  *******
+****************************/
+
+header {
+  width: 1280px;
+}
 
 /****************************
  ***ヘッダー1行目のバナー ***
@@ -32,7 +39,7 @@ div#donkeywrapper {
 }
 
 div#logo {
-  font-family: 'Alfa Slab One', cursive;
+  font-family: 'Impact';
   display: inline-block;
   font-size: 23px;
   color: rgb(51,102,204);

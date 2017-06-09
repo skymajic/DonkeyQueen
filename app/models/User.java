@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.data.format.*;
@@ -22,6 +23,9 @@ public class User extends Model {
 	
 	@Required
 	public String password;
+	
+	@OneToMany
+	public Ticket ticket;
 	
 	public static Finder<String,User> find = new Finder<String,User>(String.class, User.class);
 	

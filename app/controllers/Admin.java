@@ -11,20 +11,20 @@ import views.html.*;
 public class Admin extends Controller{
 	
     
-		/**
-	     * リターンの返り値に、Go_Admin_Homeを指定すると、manage.scala.htmlにリダイレクトされる
-		*/
-		public static Result GO_Admin_Home = redirect(
-			routes.Admin.manage(0, "name", "asc", "")
-		);
+	/**
+	 * リターンの返り値に、Go_Admin_Homeを指定すると、manage.scala.htmlにリダイレクトされる
+     */
+	public static Result GO_Admin_Home = redirect(
+		routes.Admin.manage(0, "name", "asc", "")
+	);
 
-		/**
-		 * スラッシュmanageIndexにアクセスすると、manage.scala.htmlにリダイレクト
-		 * @return
-		 */
-		public static Result manageIndex() {
-			return GO_Admin_Home;
-		}
+	/**
+	* スラッシュmanageIndexにアクセスすると、manage.scala.htmlにリダイレクト
+	* @return
+	*/
+	public static Result manageIndex() {
+		return GO_Admin_Home;
+	}
 	
 	/**
 	 * Display the full range of tickets.
@@ -114,8 +114,6 @@ public class Admin extends Controller{
 		
 	}
 	
-
-    
     
 	/**
 	 * Delete the ticket designated by id.
@@ -128,8 +126,6 @@ public class Admin extends Controller{
 		flash("success", "Ticket has been deleted");
 		return GO_Admin_Home;
 	}
-    
-	
 
 }
 
