@@ -15,7 +15,7 @@ POST	/tickets					controllers.Admin.save()
 GET		/tickets/:id				controllers.Admin.edit(id:Long)
 POST	/tickets/:id				controllers.Admin.update(id:Long)
 
-POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
+# POST	/tickets/:id/delete			controllers.Admin.delete(id:Long)
 
 
 

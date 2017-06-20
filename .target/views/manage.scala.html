@@ -26,7 +26,7 @@
 
 @header(key:String, title:String) = {
     <th class="@key.replace(".","_") ">
-        <a href="@link(0, key)">@title<span class="glyphicon @if(currentSortBy == key) @{if(currentOrder == "asc") "glyphicon-triangle-top" else "glyphicon-triangle-bottom"}"></span></a>
+        <a href="@link(0, key)">@title<span class="@if(currentSortBy == key) @{if(currentOrder == "asc") "fa fa-caret-up" else "fa fa-caret-down"}"></span></a>
     </th>
 }
 

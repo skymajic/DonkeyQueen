@@ -20,6 +20,6 @@ div#elementWrapper > div#inputWrapper > input[type="text"] {
   border: 1px solid #e0e0e0;
 }
 
-div#elementWrapper > div#inputWrapper > span#note {
+/* div#elementWrapper > div#inputWrapper > span#note {
   color: red;
-}
+} */

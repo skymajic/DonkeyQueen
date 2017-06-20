@@ -29,6 +29,16 @@ public class User extends Model {
 	
 	public static Finder<String,User> find = new Finder<String,User>(String.class, User.class);
 	
+	
+	/**
+	 * ユーザモデルに、そのユーザが購入したチケットを追加する 
+	 */
+//	public static User addTicket() {
+//		
+//	
+//	}
+	
+	
 	/**
 	 * Retrieve a user from email.
 	 * @param email

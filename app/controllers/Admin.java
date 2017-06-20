@@ -121,11 +121,11 @@ public class Admin extends Controller{
 	 * @param id
 	 * @return
 	 */
-	public static Result delete(Long id) {
-		Ticket.find.ref(id).delete();
-		flash("success", "Ticket has been deleted");
-		return GO_Admin_Home;
-	}
+//	public static Result delete(Long id) {
+//		Ticket.find.ref(id).delete();
+//		flash("success", "Ticket has been deleted");
+//		return GO_Admin_Home;
+//	}
 
 }
 

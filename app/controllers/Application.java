@@ -38,6 +38,7 @@ public class Application extends Controller {
 	       return badRequest(login.render("ログイン情報を入力してください。",loginForm));
 	    } else {
 	       session("name", loginForm.get().name);
+	       session("password", loginForm.get().password);
 	       return redirect(
 	          routes.Application.index(0,"name","asc","")
 	       );
